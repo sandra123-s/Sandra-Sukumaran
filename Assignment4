@@ -1,0 +1,36 @@
+var originalFunction = myFunction;
+window.myFunction = function() {
+  console.log("myFunction is being called!");
+  originalFunction();
+}
+var originalFunction = myFunction;
+window.myFunction = function(a, b, c) {
+  /* work before the function is called */
+  try {
+    var returnValue = originalFunction.call(this, a, b, c);
+    /* work after the function is called */
+    return returnValue;
+  }
+  catch (e) {
+    /* work in case there is an error */
+    throw e;
+  }
+}
+var originalFunction = myFunction;
+window.myFunction = function myFunction(a, b, c) { /* #1 */
+  /* work before the function is called */
+  try {
+    var returnValue = originalFunction.apply(this, arguments); /* #2 */
+    /* work after the function is called */
+    return returnValue;
+  }
+  catch (e) {
+    /* work in case there is an error */
+    throw e;
+  }
+}
+for(var prop in originalFunction) { /* #3 */
+  if (originalFunction.hasOwnProperty(prop)) {
+    window.myFunction[prop] = originalFunction[prop];
+  }
+}
