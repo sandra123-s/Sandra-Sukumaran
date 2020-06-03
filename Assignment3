@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/images/download.png" width="30" height="30" class="d-inline-block align-top" alt=""> ARYA FOODS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+
+    <section>
+        <div class="container bg-light ">
+            <br>
+            <div class="text-center">
+                <h1><span class="badge badge-warning">OUR MENU</span></h1>
+            </div>
+            <br>
+            <br>
+
+            <form *ngIf="addType" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <h2>Sushi</h2>
+                        <p>Sushi (すし, 寿司, 鮨, pronounced [sɯɕiꜜ] or [sɯꜜɕi]) is a Japanese dish of prepared vinegared rice (鮨飯, sushi-meshi), usually with some sugar and salt, accompanying a variety of ingredients (ネタ, neta), such as seafood, vegetables,
+                            and occasionally tropical fruits. Styles of sushi and its presentation vary widely, but the one key ingredient is "sushi rice", also referred to as shari (しゃり), or sumeshi (酢飯). Sushi is traditionally made with medium-grain
+                            white rice, though it can be prepared with brown rice or short-grain rice. It is very often prepared with seafood, such as squid, eel, yellowtail, salmon, tuna or imitation crab meat. Many types of sushi are vegetarian. It
+                            is often served with pickled ginger (gari), wasabi, and soy sauce. Daikon radish or pickled daikon (takuan) are popular garnishes for the dish.
+                        </p>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <h2>Chicken tikka</h2>
+                        <p>Chicken tikka is a chicken dish originating in the Indian subcontinent; the dish is popular in India, Bangladesh and Pakistan.[1] It is traditionally small pieces of boneless chicken baked using skewers on a brazier called angeethi
+                            after marinating in Indian spices and dahi (yogurt)—essentially a boneless version of tandoori chicken.[2] The word tikka (Tike in Turkish, and Tikə in Azerbaijani) is a Hindi and Urdu word and means "bits" or "pieces". It
+                            is also a chicken dish served in Punjabi cuisine. The Kashmiri version of the dish, however, is grilled over red-hot coals, and does not always contain boneless pieces. The pieces are brushed with ghee (clarified butter) at
+                            intervals to increase its flavour, while being continuously fanned. It is typically eaten with green coriander and tamarind chutney served with onion rings and lemon, or used in preparing a chicken tikka masala.
+                        </p>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <h2>Fried Rice</h2>
+                        <p>Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, or meat. It is often eaten by itself or as an accompaniment to
+                            another dish. Fried rice is a popular component of East Asian, Southeast Asian and certain South Asian cuisines. As a homemade dish, fried rice is typically made with ingredients left over from other dishes, leading to countless
+                            variations. Fried rice first developed during the Sui Dynasty in China and as such all fried rice dishes can trace their origins to Chinese fried rice.
+                        </p>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <form *ngIf="!addType">
+                <div *ngFor="let item of items" class="form-group ">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label>{{item.value.email}}&nbsp;{{item.value.mobile}}</label>
+                                </div>
+                            </div>
+                            <label>Name</label>
+                        </div>
+                        <div class="form-group col">
+                            <label>{{item.value.surname}}&nbsp;{{item.value.givenname}}&nbsp;</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label>{{item.value.dob}}&nbsp;{{item.value.gender}}&nbsp;</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label>{{item.value.passport}}&nbsp;{{item.value.nationality}}&nbsp;</label>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+
+
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
